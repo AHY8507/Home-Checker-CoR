@@ -56,9 +56,8 @@ class LightoffCheck extends HomeChecker {
     }
 }
 
-
-public class Main {
-    public static void main(String[] args) {
+class StartChecking {
+    static void startCommand() {
         Status st = new Status(true, true, true);
         AlarmoffCheck alarm = new AlarmoffCheck();
         LockedCheck locked = new LockedCheck();
@@ -66,5 +65,11 @@ public class Main {
         alarm.setSeccessor(locked);
         locked.setSeccessor(light);
         locked.check(st);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
     }
 }
