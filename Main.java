@@ -70,6 +70,6 @@ class StartChecking {
 
 public class Main {
     public static void main(String[] args) {
-        
+        StartChecking.startCommand();
     }
 }
