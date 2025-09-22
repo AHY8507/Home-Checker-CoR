@@ -65,7 +65,6 @@ public class Main {
         LightCheck light = new LightCheck();
         alarm.setSeccessor(locked);
         locked.setSeccessor(light);
-        
         locked.check(st);
     }
 }
