@@ -26,11 +26,11 @@ abstract class HomeChecker {
 
 }
 
-class AlarmCheck extends HomeChecker {
+class AlarmoffCheck extends HomeChecker {
     @Override
     public void check(Status s) {
         if(!s.alarm) {
-            throw new Error("Alarm");
+            throw new Error("Alarm isn't off.");
         }
         this.next(s);
     }
@@ -40,17 +40,17 @@ class LockedCheck extends HomeChecker {
     @Override
     public void check(Status s) {
         if(!s.locked) {
-            throw new Error("Locked");
+            throw new Error("Door isn't locked.");
         }
         this.next(s);
     }
 }
 
-class LightCheck extends HomeChecker {
+class LightoffCheck extends HomeChecker {
     @Override
     public void check(Status s) {
         if(!s.light) {
-            throw new Error("Light");
+            throw new Error("Light isn't off.");
         }
         this.next(s);
     }
@@ -60,9 +60,9 @@ class LightCheck extends HomeChecker {
 public class Main {
     public static void main(String[] args) {
         Status st = new Status(true, true, true);
-        AlarmCheck alarm = new AlarmCheck();
+        AlarmoffCheck alarm = new AlarmoffCheck();
         LockedCheck locked = new LockedCheck();
-        LightCheck light = new LightCheck();
+        LightoffCheck light = new LightoffCheck();
         alarm.setSeccessor(locked);
         locked.setSeccessor(light);
         locked.check(st);
